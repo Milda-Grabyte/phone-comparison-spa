@@ -1,7 +1,8 @@
 import React from 'react';
+import { ProductList } from '../components/ProductList';
 
-function ProductListPage() {
-  return 'hola';
+function ProductListPage({products}) {
+  return <ProductList products={ products }/>;
 }
 
 export default ProductListPage;

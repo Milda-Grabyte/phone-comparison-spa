@@ -1,7 +1,7 @@
 import React from 'react';
 
 function ProductDetailPage() {
-  return 'hola';
+  return 'hola from the detail';
 }
 
 export default ProductDetailPage;

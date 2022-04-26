@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import PhoneAppRouter from './infrastructure/router/PhoneAppRouter';
+import App from './App';
+import './styles/index.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <PhoneAppRouter />
+    <App />
   </React.StrictMode>
 );

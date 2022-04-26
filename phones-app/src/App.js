@@ -1,11 +1,12 @@
-import Header from './infrastructure/components/Header';
 import { Outlet } from 'react-router-dom';
-
+import { useGetProductService } from './infrastructure/hooks/useGetProductService';
+import PhoneAppRouter from './infrastructure/router/PhoneAppRouter';
 
 function App() {
+  const products = useGetProductService();
   return (
     <div className="App">
-      <Header />
+      <PhoneAppRouter products={ products }/>
       <Outlet />
     </div>
   );
