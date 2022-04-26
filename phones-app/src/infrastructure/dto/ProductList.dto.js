@@ -6,7 +6,7 @@ export class ProductListDTO {
         brand: product.brand,
         model: product.model,
         price: Number(product.price),
-        image: product.imgUrl | "",
+        image: product.imgUrl,
       };
     }) : this.products = "Product list not found"
   }

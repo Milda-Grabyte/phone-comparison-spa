@@ -1,10 +1,21 @@
-import React, { useEffect, useState } from 'react'
-import { productService } from '../../domain/service/product.service'
+import React from 'react'
+import { Link } from 'react-router-dom';
 
 export const ProductList = ({ products }) => {
   return (
     <ul>
-      {products.map((product) => <li key={product.id}>{product.model}</li>)}
+      {products.map((product, i) => (
+        <Link to={product.id}>
+          <li key={i}>
+            <div>
+              <img src={product.image} alt={`${product.brand} ${product.model}`} />
+            </div>
+            <div>{product.brand}</div>
+            <div>{product.model}</div>
+            <div>{product.price} €</div>
+          </li>
+        </Link>
+      ))}
     </ul>
-  )
+  );
 }
