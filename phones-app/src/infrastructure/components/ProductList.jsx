@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export const ProductList = ({ products }) => {
+const ProductList = ({ products }) => {
   return (
     <ul>
       {products.map((product, i) => (
@@ -18,3 +18,5 @@ export const ProductList = ({ products }) => {
     </ul>
   );
 }
+
+export default ProductList;
