@@ -12,8 +12,11 @@ const addHours = (numOfHours, date = new Date()) => {
   return date;
 }
 
+const keyOrId = (key, productId) => productId ? productId : key;
+
 export const helpers = {
   joinArray,
   capitalizeWord,
-  addHours
+  addHours,
+  keyOrId
 }

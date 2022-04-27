@@ -2,16 +2,16 @@ import { helpers } from '../../infrastructure/helpers/helpers';
 
 export const persistData = {
 
-  setWithExpiry(key, value, ttl) {
+  setWithExpiry(key, value, ttl, productId = '') {
     const item = {
       value: value,
       expiry: helpers.addHours(ttl),
     };
-    localStorage.setItem(key, JSON.stringify(item));
+    localStorage.setItem(helpers.keyOrId(key, productId), JSON.stringify(item));
   },
 
-  getWithExpiry(key) {
-    const itemString = localStorage.getItem(key);
+  getWithExpiry(key, productId = '') {
+    const itemString = localStorage.getItem(helpers.keyOrId(key, productId));
 
     if (!itemString) {
       return null;

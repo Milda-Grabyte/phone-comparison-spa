@@ -4,7 +4,7 @@ import PhoneAppRouter from './infrastructure/router/PhoneAppRouter';
 import { Wrapper } from './styles/wrapper';
 
 function App() {
-  const products = useGetService('product', 1)
+  const products = useGetService('product')
     return (
       <div className='App'>
         <Header />
