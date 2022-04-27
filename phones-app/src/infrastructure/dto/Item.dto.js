@@ -1,3 +1,5 @@
+import { helpers } from '../helpers/helpers';
+
 export class ItemDTO {
   constructor(data) {
     data instanceof Object
@@ -11,8 +13,8 @@ export class ItemDTO {
           os: data.os,
           resolution: data.displayResolution,
           battery: data.battery,
-          cameras: [data.primaryCamera, data.secondaryCmera], // both arrays
-          dimentions: data.dimentions,
+          cameras: [helpers.joinArray(data.primaryCamera), helpers.joinArray(data.secondaryCmera)], // both arrays
+          dimensions: data.dimentions,
           weight: data.weight,
           colors: data.colors, // array
         }

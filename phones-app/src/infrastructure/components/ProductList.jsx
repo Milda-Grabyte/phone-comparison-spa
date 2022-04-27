@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom';
 
 export const ProductList = ({ products }) => {
@@ -7,12 +6,12 @@ export const ProductList = ({ products }) => {
       {products.map((product, i) => (
         <Link to={product.id}>
           <li key={i}>
-            <div>
+            <p>
               <img src={product.image} alt={`${product.brand} ${product.model}`} />
-            </div>
-            <div>{product.brand}</div>
-            <div>{product.model}</div>
-            <div>{product.price} €</div>
+            </p>
+            <p>{product.brand}</p>
+            <p>{product.model}</p>
+            <p>{product.price} €</p>
           </li>
         </Link>
       ))}
