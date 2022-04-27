@@ -16,7 +16,8 @@ export class ItemDTO {
           cameras: [helpers.joinArray(data.primaryCamera), helpers.joinArray(data.secondaryCmera)], // both arrays
           dimensions: data.dimentions,
           weight: data.weight,
-          colors: data.colors, // array
+          sim: data.sim,
+          options: data.options //object
         }
       : this.item = 'Item detail not found';
   }

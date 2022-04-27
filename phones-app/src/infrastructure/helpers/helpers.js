@@ -8,8 +8,7 @@ const capitalizeWord = (str, allCapsWords) => {
 }
 
 const addHours = (numOfHours, date = new Date()) => {
-  date.setTime(date.getTime() + numOfHours * 60 * 60 * 1000);
-  return date;
+    return date.getTime() + numOfHours * 60 * 60 * 1000;
 }
 
 const keyOrId = (key, productId) => productId ? productId : key;

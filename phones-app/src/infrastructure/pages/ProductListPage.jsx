@@ -20,7 +20,7 @@ function ProductListPage({ products }) {
   
   return (
     <div>
-      <Search setSearchValue={setSearchValue}/>
+      <Search setSearchValue={setSearchValue} searchValue={searchValue}/>
       <ProductList products={filteredProducts} />
     </div>
   );

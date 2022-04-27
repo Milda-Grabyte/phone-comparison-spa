@@ -18,8 +18,8 @@ export const persistData = {
     }
 
     const item = JSON.parse(itemString);
-    const now = new Date();
-
+    const now = new Date().getTime();
+    
     if (now > item.expiry) {
       localStorage.removeItem(key);
       return null;

@@ -9,7 +9,7 @@ const Description = ({ item }) => {
         ? value.map(option => <p>{option}</p>)
         : value;
 
-      if (key !== 'image') {
+      if (key !== 'image' && key !== 'options') {
         return (
           <div key={key}>
             <h3>{helpers.capitalizeWord(key, ['cpu', 'ram', 'os'])}:</h3>
