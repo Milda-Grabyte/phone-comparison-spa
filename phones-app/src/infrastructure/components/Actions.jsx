@@ -6,6 +6,7 @@ const Actions = ({ item, productId }) => {
   const options = item?.options;
   const id = productId;
   const [selectedOptions, setSelectedOptions] = useState({});
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
   useEffect(() => {
     setSelectedOptions({
@@ -38,9 +39,11 @@ const Actions = ({ item, productId }) => {
   }
 
   function handleSubmit() {
-    console.log(selectedOptions)
     cartService(selectedOptions);
+    setIsButtonDisabled(true);
+    setTimeout(() => setIsButtonDisabled(false), 3000);
   }
+
   return (
     <>
       {item && (
@@ -51,7 +54,9 @@ const Actions = ({ item, productId }) => {
           <select onChange={(e) => handleOptionChange(e, 'storages')} name='storage-select'>
             {storageMap}
           </select>
-          <button onClick={handleSubmit}>Add to cart</button>
+          <button onClick={handleSubmit} disabled={isButtonDisabled}>
+            Add to cart
+          </button>
         </Wrapper>
       )}
     </>
