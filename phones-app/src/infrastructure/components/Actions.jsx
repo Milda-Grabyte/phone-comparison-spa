@@ -1,17 +1,32 @@
 import { Wrapper } from '../../styles/wrapper';
+import { useState, useEffect } from 'react';
 
 const Actions = ({ item }) => {
-  const options = item.options;
-  
-  const colorOptions = options && item.options.colors?.map((option) => <option value={option.code}>{option.name}</option>);
-  const storageOptions = options && item.options.storages?.map((option) => <option value={option.code}>{option.name}</option>);
+  const [colorOptions, setColorOptions] = useState();
+  const [storageOptions, setStorageOptions] = useState();
 
+  useEffect(() => {
+    setColorOptions(item?.options?.colors);
+    setStorageOptions(item?.options?.storages);
+  },[item])
+
+  function mapOptions(optionType) {
+    return optionType && optionType.map((option, i) => (
+      <option value={option.code} selected={i === 0}>
+        {option.name}
+      </option>
+    ));
+  }
+
+  const colorMap = mapOptions(colorOptions);
+  const storageMap = mapOptions(storageOptions);
+  
   return (
     <>
-      {options && (
+      {item && (
         <Wrapper>
-          <select name='colors-select'>{colorOptions}</select>
-          <select name='storage-select'>{storageOptions}</select>
+          <select name='colors-select'>{colorMap}</select>
+          <select name='storage-select'>{storageMap}</select>
         </Wrapper>
       )}
     </>
