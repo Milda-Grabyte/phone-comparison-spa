@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { cartService } from '../../domain/service/cart.service';
 import { Wrapper } from '../../styles/wrapper';
 
 const Actions = ({ item, productId }) => {
@@ -9,8 +10,8 @@ const Actions = ({ item, productId }) => {
   useEffect(() => {
     setSelectedOptions({
       id: id,
-      colorCode: options?.colors[0].code,
-      storageCode: options?.storages[0].code,
+      colorCode: options?.colors[0].code.toString(),
+      storageCode: options?.storages[0].code.toString(),
     });
   },[item])
 
@@ -32,12 +33,13 @@ const Actions = ({ item, productId }) => {
     const codeKey = optionType === 'colors' ? 'colorCode' : 'storageCode';
     setSelectedOptions({
       ...selectedOptions,
-      [codeKey ]: Number(e.target.value)
+      [codeKey ]: e.target.value
     })
   }
 
   function handleSubmit() {
     console.log(selectedOptions)
+    cartService(selectedOptions);
   }
   return (
     <>

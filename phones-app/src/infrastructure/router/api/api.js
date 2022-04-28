@@ -12,6 +12,17 @@ const get = async (url) => {
   return await response.json()
 }
 
+const post = async (url, data) => {
+  const fullUrl = `${baseUrl}${url}`;
+  const response = await fetch(fullUrl, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify(data)
+  });
+  return await response.json()
+}
+
 export const api = {
-  get
+  get,
+  post
 };
