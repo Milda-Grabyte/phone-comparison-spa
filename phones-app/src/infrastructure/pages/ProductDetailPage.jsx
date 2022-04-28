@@ -17,9 +17,9 @@ const ProductDetailPage = () => {
       <button onClick={() => navigate(-1)}>Go back</button>
       <Wrapper>
         <Image image={image} />
-        <Description item={item}/>
+        <Description item={item} />
       </Wrapper>
-      <Actions item={item} />
+      <Actions item={item} productId={productId} />
     </>
   );
 }
