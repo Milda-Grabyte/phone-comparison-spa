@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { cartService } from '../../domain/service/cart.service';
 import { Wrapper } from '../../styles/wrapper';
+import { helpers } from '../helpers/helpers';
 
-const Actions = ({ item, productId }) => {
+const Actions = ({ item, productId, cart, setCart }) => {
   const options = item?.options;
   const id = productId;
   const [selectedOptions, setSelectedOptions] = useState({});
@@ -34,14 +35,15 @@ const Actions = ({ item, productId }) => {
     const codeKey = optionType === 'colors' ? 'colorCode' : 'storageCode';
     setSelectedOptions({
       ...selectedOptions,
-      [codeKey ]: e.target.value
+      [codeKey]: e.target.value
     })
   }
 
-  function handleSubmit() {
-    cartService(selectedOptions);
+  async function handleSubmit () {
+    const count = await cartService(selectedOptions);
+    setCart(helpers.addToCart(cart, count));
     setIsButtonDisabled(true);
-    setTimeout(() => setIsButtonDisabled(false), 3000);
+    setTimeout(() => setIsButtonDisabled(false), 1000);
   }
 
   return (

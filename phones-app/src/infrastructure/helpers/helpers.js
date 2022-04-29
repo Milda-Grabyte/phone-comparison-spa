@@ -13,9 +13,12 @@ const addHours = (numOfHours, date = new Date()) => {
 
 const keyOrId = (key, productId) => productId ? productId : key;
 
+const addToCart = (cart, count) => cart + count;
+
 export const helpers = {
   joinArray,
   capitalizeWord,
   addHours,
-  keyOrId
+  keyOrId,
+  addToCart
 }

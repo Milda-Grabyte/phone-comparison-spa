@@ -6,7 +6,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Wrapper } from '../../styles/wrapper';
 import Actions from '../components/Actions';
 
-const ProductDetailPage = () => {
+const ProductDetailPage = ({ cart, setCart }) => {
   const { productId } = useParams(); 
   const navigate = useNavigate();
   const item = useGetService('item', productId);
@@ -19,7 +19,7 @@ const ProductDetailPage = () => {
         <Image image={image} />
         <Description item={item} />
       </Wrapper>
-      <Actions item={item} productId={productId} />
+      <Actions item={item} productId={productId} cart={cart} setCart={setCart}/>
     </>
   );
 }

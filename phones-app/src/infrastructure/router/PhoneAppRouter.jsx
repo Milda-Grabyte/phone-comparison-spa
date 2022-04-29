@@ -4,14 +4,14 @@ import App from '../../App';
 import ProductDetailPage from '../pages/ProductDetailPage';
 import ProductListPage from '../pages/ProductListPage';
 
-function PhoneAppRouter({products}) {
+function PhoneAppRouter({ cart, setCart, products}) {
   return (
     <BrowserRouter>
       <Routes>
         <Route index element={<ProductListPage products={products} />} />
         <Route path='/' element={<App />} />
         <Route path='all' element={<ProductListPage />} />
-        <Route path=':productId' element={<ProductDetailPage />} />
+        <Route path=':productId' element={<ProductDetailPage cart={cart} setCart={setCart}/>} />
         <Route path='*' element={<Link to='/' />} />
       </Routes>
     </BrowserRouter>

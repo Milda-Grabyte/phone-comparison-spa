@@ -5,6 +5,6 @@ export const cartRepository = {
   post: async (cartItem) => {
     const confirmedItem = new cartItemDTO(cartItem);
     const count = await api.post('api/cart', confirmedItem.item);
-    return count;
+    return count.count;
   },
 };
