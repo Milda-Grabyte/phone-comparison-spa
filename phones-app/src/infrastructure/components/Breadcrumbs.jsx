@@ -3,7 +3,6 @@ import styled, { ThemeProvider } from 'styled-components';
 import { themeColors } from '../../styles/theme';
 
 const Breadcrumbs = ({ path }) => {
-  console.log(path)
   return (
     <ThemeProvider theme={themeColors}>
       <StyledWrapper>

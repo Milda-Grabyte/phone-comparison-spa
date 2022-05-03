@@ -4,6 +4,6 @@ import App from '../App';
 describe('test App component', () => {
   test('render App', () => {
     render(<App />, { root: 'concurrent' });
-    expect(getByText('Hello')).not.toBeInTheDocument();
+    screen(getByText('Hello')).not.toBeInTheDocument();
   });
 });
