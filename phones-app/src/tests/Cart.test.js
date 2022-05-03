@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import Cart from '../infrastructure/components/Cart';
 
-test('renders learn react link', () => {
+test('renders Cart component', () => {
   render(<Cart total={2}/>);
-  const text = screen.getByText('2');
-  expect(text).toBeInTheDocument();
+  expect(screen.getByText('2')).toBeInTheDocument();
+  expect(() => screen.getByText('3')).toThrow()
 });
