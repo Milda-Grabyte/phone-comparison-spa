@@ -34,7 +34,7 @@ function ProductListPage({ products }) {
 const StyledPage = styled(StyledWrapper)`
   padding: 0px;
   background: ${(props) => props.theme.darkTeal};
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   flex-wrap: no-wrap;

@@ -24,7 +24,7 @@ const StyledCart = styled.div`
     font-family: 'Helvetica Neue';
     font-size: 1.4rem;
     line-height: 1.4rem;
-    margin-block-start: 1.7em;
+    margin-block-start: 1.6em;
   }
 
   .cart-image {
