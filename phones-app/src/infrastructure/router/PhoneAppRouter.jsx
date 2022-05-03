@@ -12,7 +12,6 @@ function PhoneAppRouter({ cart, setCart, products}) {
       <Routes>
         <Route index element={<ProductListPage products={products} />} />
         <Route path='/' element={<App />} />
-        <Route path='all' element={<ProductListPage />} />
         <Route path=':productId' element={<ProductDetailPage cart={cart} setCart={setCart} />} />
         <Route path='*' element={<Link to='/' />} />
       </Routes>

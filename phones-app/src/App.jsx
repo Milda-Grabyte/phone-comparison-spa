@@ -1,6 +1,6 @@
 import { useGetService } from './infrastructure/hooks/useGetService';
 import PhoneAppRouter from './infrastructure/router/PhoneAppRouter';
-import { Wrapper } from './styles/wrapper';
+import { StyledWrapper } from './styles/wrapper';
 import { useState } from 'react';
 
 
@@ -10,9 +10,9 @@ function App() {
 
     return (
       <div className='App'>
-        <Wrapper>
+        <StyledWrapper>
           <PhoneAppRouter cart={cart} setCart={setCart} products={products} />
-        </Wrapper>
+        </StyledWrapper>
       </div>
     );
 }

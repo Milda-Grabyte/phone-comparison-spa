@@ -3,7 +3,7 @@ import Description from '../components/Description';
 import Image from '../components/Image';
 import { useGetService } from '../hooks/useGetService';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Wrapper } from '../../styles/wrapper';
+import { StyledWrapper } from '../../styles/wrapper';
 import Actions from '../components/Actions';
 
 const ProductDetailPage = ({ cart, setCart }) => {
@@ -15,11 +15,11 @@ const ProductDetailPage = ({ cart, setCart }) => {
   return (
     <>
       <button onClick={() => navigate(-1)}>Go back</button>
-      <Wrapper>
+      <StyledWrapper>
         <Image image={image} />
         <Description item={item} />
-      </Wrapper>
-      <Actions item={item} productId={productId} cart={cart} setCart={setCart}/>
+      </StyledWrapper>
+      <Actions item={item} productId={productId} cart={cart} setCart={setCart} />
     </>
   );
 }

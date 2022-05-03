@@ -1,9 +1,5 @@
-const Image = ({ image }) => {
-  return (
-    <div>
-      <img src={image} alt='Phone model'/>
-    </div>
-  );
+const Image = ({ image, alt, className = '' }) => {
+  return <img src={image} alt={alt} className={className}/>;
 }
 
 export default Image;

@@ -1,7 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
+import { StyledWrapper } from '../../styles/wrapper';
 import ProductList  from '../components/ProductList';
 import Search from '../components/Search';
+import styled, { ThemeProvider } from 'styled-components';
+import { themeColors } from '../../styles/theme';
 
 function ProductListPage({ products }) {
   const [searchValue, setSearchValue] = useState('');
@@ -19,11 +22,23 @@ function ProductListPage({ products }) {
     });
   
   return (
-    <div>
-      <Search setSearchValue={setSearchValue} searchValue={searchValue}/>
-      <ProductList products={filteredProducts} />
-    </div>
+    <ThemeProvider theme={themeColors}>
+      <StyledPage>
+        <Search setSearchValue={setSearchValue} searchValue={searchValue} />
+        <ProductList products={filteredProducts} />
+      </StyledPage>
+    </ThemeProvider>
   );
 }
+
+const StyledPage = styled(StyledWrapper)`
+  padding: 0px;
+  background: ${(props) => props.theme.darkTeal};
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: no-wrap;
+`;
+
 
 export default ProductListPage;

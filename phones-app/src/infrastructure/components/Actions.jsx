@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { cartService } from '../../domain/service/cart.service';
-import { Wrapper } from '../../styles/wrapper';
+import { StyledWrapper } from '../../styles/wrapper';
 import { helpers } from '../helpers/helpers';
 
 const Actions = ({ item, productId, cart, setCart }) => {
@@ -49,7 +49,7 @@ const Actions = ({ item, productId, cart, setCart }) => {
   return (
     <>
       {item && (
-        <Wrapper>
+        <StyledWrapper>
           <select onChange={(e) => handleOptionChange(e, 'colors')} name='colors-select'>
             {colorMap}
           </select>
@@ -59,7 +59,7 @@ const Actions = ({ item, productId, cart, setCart }) => {
           <button onClick={handleSubmit} disabled={isButtonDisabled}>
             Add to cart
           </button>
-        </Wrapper>
+        </StyledWrapper>
       )}
     </>
   );
