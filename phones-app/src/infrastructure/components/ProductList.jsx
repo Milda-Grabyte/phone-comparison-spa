@@ -26,7 +26,7 @@ const ProductList = ({ products }) => {
               <div className='card'></div>
               <div className='card-info'>
                 <div className='card-image'>
-                  <Image image={product.image} alt={`${product.brand} ${product.model}`} />
+                  <Image image={product.image} alt={`${product.brand} ${product.model}`}/>
                 </div>
                 <div className='card-text'>
                   <div className='card-text__description'>

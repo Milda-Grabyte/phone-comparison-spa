@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { cartService } from '../../domain/service/cart.service';
 import { StyledWrapper } from '../../styles/wrapper';
 import { helpers } from '../helpers/helpers';
+import Button from './Button';
 
 const Actions = ({ item, productId, cart, setCart }) => {
   const options = item?.options;
@@ -56,9 +57,7 @@ const Actions = ({ item, productId, cart, setCart }) => {
           <select data-testid='select-storages' onChange={(e) => handleOptionChange(e, 'storages')} name='storage-select'>
             {storageMap}
           </select>
-          <button onClick={handleSubmit} disabled={isButtonDisabled}>
-            Add to cart
-          </button>
+          <Button onClick={handleSubmit} text='Add to cart' disabled={isButtonDisabled}/>
         </StyledWrapper>
       )}
     </>

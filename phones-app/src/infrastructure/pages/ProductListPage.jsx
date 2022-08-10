@@ -35,8 +35,6 @@ const StyledPage = styled(StyledWrapper)`
   padding: 0px;
   background: ${(props) => props.theme.darkTeal};
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   flex-wrap: no-wrap;
 `;
 
