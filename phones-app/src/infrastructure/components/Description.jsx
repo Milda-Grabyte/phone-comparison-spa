@@ -18,7 +18,6 @@ const Description = ({ item }) => {
         );
       }
     });
-    console.log(layout);
   return layout;
 };
 

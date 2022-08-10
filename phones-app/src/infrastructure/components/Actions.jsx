@@ -50,10 +50,10 @@ const Actions = ({ item, productId, cart, setCart }) => {
     <>
       {item && (
         <StyledWrapper>
-          <select onChange={(e) => handleOptionChange(e, 'colors')} name='colors-select'>
+          <select data-testid='select-colors' onChange={(e) => handleOptionChange(e, 'colors')} name='colors-select'>
             {colorMap}
           </select>
-          <select onChange={(e) => handleOptionChange(e, 'storages')} name='storage-select'>
+          <select data-testid='select-storages' onChange={(e) => handleOptionChange(e, 'storages')} name='storage-select'>
             {storageMap}
           </select>
           <button onClick={handleSubmit} disabled={isButtonDisabled}>

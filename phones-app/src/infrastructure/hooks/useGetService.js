@@ -7,12 +7,12 @@ export const useGetService = (dataType, productId = undefined) => {
   const [receivedData, setReceivedData] = useState([]);
 
   useEffect(() => {
-    const storedData = persistData.getWithExpiry(dataType, productId);
+    const storedData = persistData.getWithExpiration(dataType, productId);
     if (storedData !== null) setReceivedData(storedData);
     else {
       getService(dataType, productId).then((response) => {
         setReceivedData(response);
-        persistData.setWithExpiry(dataType, response, 1, productId);
+        persistData.setWithExpiration(dataType, response, 1, productId);
       });
     };
   }, []);

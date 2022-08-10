@@ -2,15 +2,15 @@ import { helpers } from '../../infrastructure/helpers/helpers';
 
 export const persistData = {
 
-  setWithExpiry(key, value, ttl, productId = '') {
+  setWithExpiration(key, value, ttl, productId = '') {
     const item = {
       value: value,
-      expiry: helpers.addHours(ttl),
+      expiration: helpers.addHours(ttl),
     };
     localStorage.setItem(helpers.keyOrId(key, productId), JSON.stringify(item));
   },
 
-  getWithExpiry(key, productId = '') {
+  getWithExpiration(key, productId = '') {
     const itemString = localStorage.getItem(helpers.keyOrId(key, productId));
 
     if (!itemString) {
@@ -20,7 +20,7 @@ export const persistData = {
     const item = JSON.parse(itemString);
     const now = new Date().getTime();
     
-    if (now > item.expiry) {
+    if (now > item.expiration) {
       localStorage.removeItem(key);
       return null;
     }
