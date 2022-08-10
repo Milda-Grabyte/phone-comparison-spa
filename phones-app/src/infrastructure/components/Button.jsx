@@ -2,20 +2,24 @@ import styled, { ThemeProvider } from 'styled-components';
 import { themeColors } from '../../styles/theme';
 
 const Button = ({ onClick, text, className = '', disabled }) => {
-    return (
-        <ThemeProvider theme={themeColors}>
-            <StyledButton className={className} onClick={onClick} disabled={disabled}>
-                <span>{text}</span>
-            </StyledButton>
-        </ThemeProvider>
-    )
+  
+  const spanOptions = className.includes('back') ? 
+    <span>{'<'}&nbsp;&nbsp;&nbsp;{text}</span> : 
+    <span>{text}</span>;
+
+  return (
+      <ThemeProvider theme={themeColors}>
+          <StyledButton className={className} onClick={onClick} disabled={disabled}>
+              {spanOptions}
+          </StyledButton>
+      </ThemeProvider>
+  )
 }
 
 const StyledButton = styled.button`
   outline: none;
   height: 35px;
   width: 120px;
-  margin-left: calc(100% - 120px);
   border: 2px solid ${(props) => props.theme.orange};
   color: ${(props) => props.theme.orange};
   font-family: 'Yantramanav', sans-serif;
@@ -30,12 +34,7 @@ const StyledButton = styled.button`
 
   &:hover{
     background: transparent;
-    color: #000;
-  }
-
-  &.back:hover::before{
-    content: "<";
-    color: black;
+    color: ${(props) => props.theme.orange};
   }
 
   span {
@@ -92,6 +91,7 @@ const StyledButton = styled.button`
   span:hover:before {
     height: 100%;
   }
+
   span:hover:after {
     width: 100%;
   }

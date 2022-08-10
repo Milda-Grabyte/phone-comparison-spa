@@ -36,6 +36,10 @@ const StyledPage = styled(StyledWrapper)`
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 0 5%;
+
+  .detail__button.back {
+    margin-left: calc(100% - 120px);
+  }
   
   .detail__stats+actions > {
   }
