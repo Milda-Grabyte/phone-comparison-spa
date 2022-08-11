@@ -53,7 +53,7 @@ const StyledInput = styled.input`
   }
 `;
 
-const StyledText = styled.p`;
+const StyledText = styled.p`
   font-weight: 700;
   font-size: 1.5rem;
   margin: 1em 0 0.3em 33px;

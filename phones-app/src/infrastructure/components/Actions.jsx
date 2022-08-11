@@ -3,6 +3,8 @@ import { cartService } from '../../domain/service/cart.service';
 import { StyledWrapper } from '../../styles/wrapper';
 import { helpers } from '../helpers/helpers';
 import Button from './Button';
+import styled, { ThemeProvider } from 'styled-components';
+import Dropdown from './Dropdown';
 
 const Actions = ({ item, productId, cart, setCart }) => {
   const options = item?.options;
@@ -50,18 +52,18 @@ const Actions = ({ item, productId, cart, setCart }) => {
   return (
     <>
       {item && (
-        <StyledWrapper>
-          <select data-testid='select-colors' onChange={(e) => handleOptionChange(e, 'colors')} name='colors-select'>
-            {colorMap}
-          </select>
-          <select data-testid='select-storages' onChange={(e) => handleOptionChange(e, 'storages')} name='storage-select'>
-            {storageMap}
-          </select>
+        <StyledWrapper primary>
+          <Dropdown testID='colors' onChange={(e) => handleOptionChange(e, 'colors')} name='colors' options={colorMap}/>
+          <Dropdown testID='storages' onChange={(e) => handleOptionChange(e, 'storages')} name='storage-select' options={storageMap}/>
           <Button onClick={handleSubmit} text='Add to cart' disabled={isButtonDisabled}/>
         </StyledWrapper>
       )}
     </>
   );
 }
+
+const StyledActions = styled(StyledWrapper)`
+  
+`;
 
 export default Actions;

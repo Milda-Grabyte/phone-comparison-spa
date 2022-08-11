@@ -17,12 +17,14 @@ const ProductDetailPage = ({ cart, setCart }) => {
   
   return (
     <ThemeProvider theme={themeColors}>
-      <StyledPage primary>
+      <StyledPage>
         <Button className='detail__button back' onClick={() => navigate(-1)} text='Go back' />
-        <Image image={image} alt='detail image' className='detail__image'/>
-        <StyledWrapper className='detail__stats+actions'>
-          <Description item={item} />
-          <Actions item={item} productId={productId} cart={cart} setCart={setCart} />
+        <StyledWrapper className='detail__contents'>
+          <Image image={image} alt='detail image' className='detail__image'/>
+          <StyledWrapper className='detail__stats+actions'>
+            <Description item={item} />
+            <Actions item={item} productId={productId} cart={cart} setCart={setCart} />
+          </StyledWrapper>
         </StyledWrapper>
       </StyledPage>
     </ThemeProvider>
@@ -31,21 +33,27 @@ const ProductDetailPage = ({ cart, setCart }) => {
 
 const StyledPage = styled(StyledWrapper)`
   padding: 0px;
-  background: ${(props) => props.theme.darkTeal};
+  background: ${(props) => props.theme.teal};
   height: calc(100vh - 9.5rem);
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 0 5%;
+
+  .detail__contents {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0 10% 5% 10%;;
+  }
 
   .detail__button.back {
-    margin-left: calc(100% - 120px);
+    margin: 1% 0 1% 85%;
   }
   
   .detail__stats+actions > {
+    justify-content: space-between;
   }
 
   img {
-    height: 70%;
+    height: 80%;
     margin: auto 0;
   }
 `;
