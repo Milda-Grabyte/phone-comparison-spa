@@ -1,16 +1,16 @@
-import { render, screen} from '@testing-library/react';
-import ProductDetailPage from '../infrastructure/pages/ProductDetailPage';
+import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
+import ProductDetailPage from '../infrastructure/pages/ProductDetailPage';
 
 describe('test ProductListPage component', () => {
   test('renders component', () => {
     const setCart = jest.fn();
-    const layout = render(
+    const view = render(
         <BrowserRouter>
-            <ProductDetailPage cart={2} setCart={setCart}/>
-        </BrowserRouter>  
+          <ProductDetailPage cart={ 2 } setCart={ setCart }/>
+      </BrowserRouter>  
     );
-    expect(typeof layout).toBe('object');
+    expect(typeof view).toBe('object');
     expect(screen.getAllByRole('button')).toHaveLength(2);
   });
 });

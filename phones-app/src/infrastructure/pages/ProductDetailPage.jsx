@@ -1,13 +1,13 @@
 import React from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import styled, { ThemeProvider } from 'styled-components';
+import { themeColors } from '../../styles/theme';
+import { StyledWrapper } from '../../styles/wrapper';
+import Actions from '../components/Actions';
+import Button from '../components/Button';
 import Description from '../components/Description';
 import Image from '../components/Image';
 import { useGetService } from '../hooks/useGetService';
-import { useParams, useNavigate } from 'react-router-dom';
-import { StyledWrapper } from '../../styles/wrapper';
-import Actions from '../components/Actions';
-import styled, { ThemeProvider } from 'styled-components';
-import { themeColors } from '../../styles/theme';
-import Button from '../components/Button';
 
 const ProductDetailPage = ({ cart, setCart }) => {
   const { productId } = useParams(); 
@@ -16,20 +16,20 @@ const ProductDetailPage = ({ cart, setCart }) => {
   const image = item.image;
   
   return (
-    <ThemeProvider theme={themeColors}>
+      <ThemeProvider theme={ themeColors }>
       <StyledPage>
-        <Button className='detail__button back' onClick={() => navigate(-1)} text='Go back' />
-        <StyledWrapper className='detail__contents'>
-          <Image image={image} alt='detail image' className='detail__image'/>
-          <StyledWrapper className='detail__stats+actions'>
-            <Description item={item} />
-            <Actions item={item} productId={productId} cart={cart} setCart={setCart} />
+              <Button className='detail__button back' onClick={ () => navigate(-1) } text='Go back' />
+              <StyledWrapper className='detail__contents'>
+            <Image image={ image } alt='detail image' className='detail__image'/>
+            <StyledWrapper className='detail__stats+actions'>
+              <Description item={ item } />
+              <Actions item={ item } productId={ productId } cart={ cart } setCart={ setCart } />
           </StyledWrapper>
         </StyledWrapper>
-      </StyledPage>
+          </StyledPage>
     </ThemeProvider>
   );
-}
+};
 
 const StyledPage = styled(StyledWrapper)`
   padding: 0px;

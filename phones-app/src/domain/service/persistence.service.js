@@ -5,7 +5,7 @@ export const persistData = {
   setWithExpiration(key, value, ttl, productId = '') {
     const item = {
       value: value,
-      expiration: helpers.addHours(ttl),
+      expiration: helpers.addHours(ttl)
     };
     localStorage.setItem(helpers.keyOrId(key, productId), JSON.stringify(item));
   },
@@ -26,4 +26,4 @@ export const persistData = {
     }
     return item.value;
   }
-}
+};

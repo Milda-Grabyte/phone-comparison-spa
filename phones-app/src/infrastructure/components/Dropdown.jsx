@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 const Dropdown = ({ testID, onChange, name, options }) => {
-    return (
-        <StyledSelect data-testid={`select-${testID}`} onChange={onChange} name={`${name}-select`}>
-            {options}
-        </StyledSelect>
-    )
-}
+  return (
+    <StyledSelect data-testid={ `select-${testID}` } onChange={ onChange } name={ `${name}-select` }>
+      { options }
+    </StyledSelect>
+  );
+};
 
 const StyledSelect = styled.select`
     font-family: 'Yantramanav', sans-serif;

@@ -7,22 +7,22 @@ const Description = ({ item }) => {
     Object.entries(item).map(([key, value]) => {
       const mapValues =
         Array.isArray(value) && !value.includes(false)
-        ? value.join(' ')
-        : value;
+          ? value.join(' ')
+          : value;
 
       if (key !== 'image' && key !== 'options') {
         return (
-          <StyledWrapper primary className='description' key={key}>
-            <StyledSpec>{helpers.capitalizeWord(key, ['cpu', 'ram', 'os'])}:</StyledSpec>
-            <StyledText>
-              {mapValues ? mapValues : '-'}
-              {key === 'price' && mapValues ? ' €' : key === 'weight' && mapValues && ' g'}
+            <StyledWrapper primary className='description' key={ key }>
+              <StyledSpec>{ helpers.capitalizeWord(key, ['cpu', 'ram', 'os']) }:</StyledSpec>
+              <StyledText>
+                { mapValues ? mapValues : '-' }
+                { key === 'price' && mapValues ? ' €' : key === 'weight' && mapValues && ' g' }
             </StyledText>
           </StyledWrapper>
         );
       }
     });
-  return <AdaptedWrapper className='description__wrapper'>{layout}</AdaptedWrapper>;
+  return <AdaptedWrapper className='description__wrapper'>{ layout }</AdaptedWrapper>;
 };
 
 const AdaptedWrapper = styled(StyledWrapper)`

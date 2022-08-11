@@ -19,13 +19,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "coverage": "npm run test -- --coverage --watchAll=false"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "coverage": "npm run test -- --coverage --watchAll=false",
+    "lint": "eslint -c .eslintrc.js --ext .js,.jsx .",
+    "lint:fix": "npm run lint -- --fix . --ext .js,.jsx ."
   },
   "browserslist": {
     "production": [

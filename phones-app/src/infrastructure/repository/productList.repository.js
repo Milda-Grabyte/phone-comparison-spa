@@ -1,6 +1,6 @@
 
-import { ProductListDTO } from '../dto/ProductList.dto'
-import { api } from '../api/api'
+import { api } from '../api/api';
+import { ProductListDTO } from '../dto/ProductList.dto';
 
 export const productRepository = {
   get: async () => {
@@ -8,4 +8,4 @@ export const productRepository = {
     const confirmedList = new ProductListDTO(products);
     return confirmedList.products;
   }
-}
+};

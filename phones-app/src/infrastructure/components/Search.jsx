@@ -3,19 +3,19 @@ import { StyledWrapper } from '../../styles/wrapper';
 
 const Search = ({ setSearchValue, searchValue }) => {
   return (
-    <StyledSearch primary>
+      <StyledSearch primary>
       <label htmlFor='search-form'>
-        <StyledText>Find your new phone</StyledText>
-        <StyledInput
-          type='search'
-          name='search-form'
-          id='search-form'
-          className='search-input'
-          placeholder='Search brand or model...'
-          value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
+              <StyledText>Find your new phone</StyledText>
+              <StyledInput
+            type='search'
+            name='search-form'
+            id='search-form'
+            className='search-input'
+            placeholder='Search brand or model...'
+            value={ searchValue }
+            onChange={ (e) => setSearchValue(e.target.value) }
         />
-      </label>
+          </label>
     </StyledSearch>
   );
 };

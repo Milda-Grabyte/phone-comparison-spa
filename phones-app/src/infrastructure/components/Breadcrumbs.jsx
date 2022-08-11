@@ -3,19 +3,19 @@ import styled from 'styled-components';
 
 const Breadcrumbs = ({ path }) => {
   return (
-    <StyledWrapper>
+      <StyledWrapper>
       <Link to='/'>
-        <p className='breadcrumbs-text'>home</p>
-      </Link>
-      {path.length > 1 && (
-        <Link to={path}>
-          <p className='breadcrumbs-chevron'>{'>'}</p>
-          <p className='breadcrumbs-text'>model</p>
+              <p className='breadcrumbs-text'>home</p>
+          </Link>
+      { path.length > 1 && (
+              <Link to={ path }>
+            <p className='breadcrumbs-chevron'>{ '>' }</p>
+            <p className='breadcrumbs-text'>model</p>
         </Link>
-      )}
+      ) }
     </StyledWrapper>
   );
-}
+};
 
 const StyledWrapper = styled.div`
   flex-basis: 100%;

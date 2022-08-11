@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import cart from '../../assets/shopping-cart.png';
 import Image from './Image';
+import cart from '../../assets/shopping-cart.png';
 
 const Cart = ({ total }) => {
   return (
-    <StyledCart>
-      <Image image={cart} alt='cart' className='cart-image' />
-      <h4>{total}</h4>
+      <StyledCart>
+      <Image image={ cart } alt='cart' className='cart-image' />
+      <h4>{ total }</h4>
     </StyledCart>
   );
 };

@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
-import { cartService } from '../../domain/service/cart.service';
-import { StyledWrapper } from '../../styles/wrapper';
-import { helpers } from '../helpers/helpers';
-import Button from './Button';
 import styled from 'styled-components';
+import Button from './Button';
 import Dropdown from './Dropdown';
+import { cartService } from '../../domain/service/cart.service';
+import { helpers } from '../helpers/helpers';
 
 const Actions = ({ item, productId, cart, setCart }) => {
   const options = item?.options;
@@ -16,16 +15,16 @@ const Actions = ({ item, productId, cart, setCart }) => {
     setSelectedOptions({
       id: id,
       colorCode: options?.colors[0].code.toString(),
-      storageCode: options?.storages[0].code.toString(),
+      storageCode: options?.storages[0].code.toString()
     });
-  },[item])
+  },[item]);
 
   function mapOptions(options, optionType) {
     return (
       options &&
       options[optionType]?.map((option, i) => (
-        <option value={option.code} selected={i === 0}>
-          {option.name}
+          <option key={ `option ${i + 1}}` } value={ option.code } selected={ i === 0 }>
+            { option.name }
         </option>
       ))
     );
@@ -39,7 +38,7 @@ const Actions = ({ item, productId, cart, setCart }) => {
     setSelectedOptions({
       ...selectedOptions,
       [codeKey]: e.target.value
-    })
+    });
   }
 
   async function handleSubmit () {
@@ -50,17 +49,17 @@ const Actions = ({ item, productId, cart, setCart }) => {
   }
 
   return (
-    <>
-      {item && (
-        <StyledActions>
-          <Dropdown testID='colors' onChange={(e) => handleOptionChange(e, 'colors')} name='colors' options={colorMap}/>
-          <Dropdown testID='storages' onChange={(e) => handleOptionChange(e, 'storages')} name='storage-select' options={storageMap}/>
-          <Button onClick={handleSubmit} text='Add to cart' disabled={isButtonDisabled}/>
+      <>
+      { item && (
+              <StyledActions>
+            <Dropdown testID='colors' onChange={ (e) => handleOptionChange(e, 'colors') } name='colors' options={ colorMap }/>
+            <Dropdown testID='storages' onChange={ (e) => handleOptionChange(e, 'storages') } name='storage-select' options={ storageMap }/>
+            <Button onClick={ handleSubmit } text='Add to cart' disabled={ isButtonDisabled }/>
         </StyledActions>
-      )}
+      ) }
     </>
   );
-}
+};
 
 const StyledActions = styled.div`
   display: grid;

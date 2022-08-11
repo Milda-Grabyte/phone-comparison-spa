@@ -1,4 +1,4 @@
-import { useState, useEffect} from 'react';
+import { useEffect, useState } from 'react';
 import { getService } from '../../domain/service/get.service';
 import { persistData } from '../../domain/service/persistence.service';
 
@@ -14,7 +14,7 @@ export const useGetService = (dataType, productId = undefined) => {
         setReceivedData(response);
         persistData.setWithExpiration(dataType, response, 1, productId);
       });
-    };
+    }
   }, []);
 
   return receivedData;

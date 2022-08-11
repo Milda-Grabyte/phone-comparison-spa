@@ -1,16 +1,15 @@
-import React from 'react';
 import { useState } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
+import { themeColors } from '../../styles/theme';
 import { StyledWrapper } from '../../styles/wrapper';
 import ProductList  from '../components/ProductList';
 import Search from '../components/Search';
-import styled, { ThemeProvider } from 'styled-components';
-import { themeColors } from '../../styles/theme';
 
 function ProductListPage({ products }) {
   const [searchValue, setSearchValue] = useState('');
   
   const filteredProducts =
-    products.filter(product => {
+    products.filter( product => {
       if (searchValue === '') {
         return product;
       } else {
@@ -19,14 +18,14 @@ function ProductListPage({ products }) {
         const cleanValue = lowerCaseValues.slice(1, -2).join(' ');
         return cleanValue.includes(searchValue.toLowerCase());
       }
-  });
+    });
   
   return (
-    <ThemeProvider theme={themeColors}>
+      <ThemeProvider theme={ themeColors }>
       <StyledPage>
-        <Search setSearchValue={setSearchValue} searchValue={searchValue} />
-        <ProductList products={filteredProducts} />
-      </StyledPage>
+              <Search setSearchValue={ setSearchValue } searchValue={ searchValue } />
+              <ProductList products={ filteredProducts } />
+          </StyledPage>
     </ThemeProvider>
   );
 }

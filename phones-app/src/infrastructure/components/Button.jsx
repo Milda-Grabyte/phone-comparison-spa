@@ -3,15 +3,15 @@ import styled from 'styled-components';
 const Button = ({ onClick, text, className = '', disabled }) => {
   
   const spanOptions = className.includes('back') ? 
-    <span>{'<'}&nbsp;&nbsp;&nbsp;{text}</span> : 
-    <span>{text}</span>;
+      <span>{ '<' }&nbsp;&nbsp;&nbsp;{ text }</span> : 
+    <span>{ text }</span>;
 
   return (
-    <StyledButton className={className} onClick={onClick} disabled={disabled}>
-        {spanOptions}
+      <StyledButton className={ className } onClick={ onClick } disabled={ disabled }>
+      { spanOptions }
     </StyledButton>
-  )
-}
+  );
+};
 
 const StyledButton = styled.button`
   outline: none;
