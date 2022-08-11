@@ -53,8 +53,12 @@ const StyledPage = styled(StyledWrapper)`
   }
 
   img {
+    position: relative;
     height: 80%;
     margin: auto 3rem auto 0;
+    border: solid 2px white;
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px 5px rgba(244, 162, 97, 0.5);
   }
 `;
 
