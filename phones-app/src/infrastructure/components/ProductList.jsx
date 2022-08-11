@@ -16,6 +16,7 @@ const ProductList = ({ products }) => {
       <p>{evaluatedString}</p>
     );
   }
+  
   return (
     <StyledList>
       {products.map((product, i) => (

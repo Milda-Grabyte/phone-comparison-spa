@@ -16,10 +16,10 @@ function ProductListPage({ products }) {
       } else {
         const objectValues = Object.values(product);
         const lowerCaseValues = objectValues.map(value => value.toLowerCase());
-        const cleanValues = lowerCaseValues.slice(1, -2)
-        return cleanValues.some(clean => clean.includes(searchValue.toLowerCase()));
+        const cleanValue = lowerCaseValues.slice(1, -2).join(' ');
+        return cleanValue.includes(searchValue.toLowerCase());
       }
-    });
+  });
   
   return (
     <ThemeProvider theme={themeColors}>
