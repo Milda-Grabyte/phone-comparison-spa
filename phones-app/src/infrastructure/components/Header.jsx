@@ -6,6 +6,7 @@ import logo from '../../assets/eye-logo.png'
 import styled, { ThemeProvider } from 'styled-components';
 import { themeColors } from '../../styles/theme';
 import Image from './Image';
+import { Link } from "react-router-dom";
 
 const Header = ({ cart }) => {
   const location = useLocation();
@@ -13,7 +14,9 @@ const Header = ({ cart }) => {
   return (
     <ThemeProvider theme={themeColors}>
       <AdaptedWrapper primary>
-        <Image image={logo} alt='logo' className='logo-image' />
+        <Link to='/' className='logo-link'>
+          <Image image={logo} alt='logo' className='logo-image'/>
+        </Link>
         <h1>Phone Store</h1>
         <Cart total={cart} />
         <Breadcrumbs path={location.pathname} />
@@ -28,8 +31,15 @@ const AdaptedWrapper = styled(StyledWrapper)`
   align-items: center;
   justify-content: flex-start;
 
-  .logo-image {
+  a.logo-link {
+    display: flex;
+    align-items: center;
     height: 60%;
+    cursor: pointer;
+  }
+
+  .logo-image {
+    height: 100%;
     padding: 0 0 0 2rem;
   }
 

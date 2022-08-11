@@ -6,8 +6,6 @@ const Button = ({ onClick, text, className = '', disabled }) => {
     <span>{'<'}&nbsp;&nbsp;&nbsp;{text}</span> : 
     <span>{text}</span>;
 
-    console.log(disabled);
-
   return (
     <StyledButton className={className} onClick={onClick} disabled={disabled}>
         {spanOptions}
