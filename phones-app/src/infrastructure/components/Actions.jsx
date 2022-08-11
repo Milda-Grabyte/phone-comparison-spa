@@ -3,7 +3,7 @@ import { cartService } from '../../domain/service/cart.service';
 import { StyledWrapper } from '../../styles/wrapper';
 import { helpers } from '../helpers/helpers';
 import Button from './Button';
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 import Dropdown from './Dropdown';
 
 const Actions = ({ item, productId, cart, setCart }) => {
@@ -52,18 +52,25 @@ const Actions = ({ item, productId, cart, setCart }) => {
   return (
     <>
       {item && (
-        <StyledWrapper primary>
+        <StyledActions>
           <Dropdown testID='colors' onChange={(e) => handleOptionChange(e, 'colors')} name='colors' options={colorMap}/>
           <Dropdown testID='storages' onChange={(e) => handleOptionChange(e, 'storages')} name='storage-select' options={storageMap}/>
           <Button onClick={handleSubmit} text='Add to cart' disabled={isButtonDisabled}/>
-        </StyledWrapper>
+        </StyledActions>
       )}
     </>
   );
 }
 
-const StyledActions = styled(StyledWrapper)`
-  
+const StyledActions = styled.div`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+
+  button {
+    grid-row: 1 / 2;
+    grid-column: 5 / 6;
+  }
 `;
 
 export default Actions;

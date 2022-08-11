@@ -14,7 +14,10 @@ const Description = ({ item }) => {
         return (
           <StyledWrapper primary className='description' key={key}>
             <StyledSpec>{helpers.capitalizeWord(key, ['cpu', 'ram', 'os'])}:</StyledSpec>
-            <StyledText>{mapValues ? mapValues : '-'}{key === 'price' ? ' €' : key === 'weight' && ' g'}</StyledText>
+            <StyledText>
+              {mapValues ? mapValues : '-'}
+              {key === 'price' && mapValues ? ' €' : key === 'weight' && mapValues && ' g'}
+            </StyledText>
           </StyledWrapper>
         );
       }

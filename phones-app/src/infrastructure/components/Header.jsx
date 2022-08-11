@@ -3,19 +3,22 @@ import Cart from './Cart';
 import { useLocation } from 'react-router-dom';
 import Breadcrumbs from './Breadcrumbs';
 import logo from '../../assets/eye-logo.png'
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
+import { themeColors } from '../../styles/theme';
 import Image from './Image';
 
 const Header = ({ cart }) => {
   const location = useLocation();
   
   return (
-    <AdaptedWrapper primary>
-      <Image image={logo} alt='logo' className='logo-image' />
-      <h1>Phone Store</h1>
-      <Cart total={cart} />
-      <Breadcrumbs path={location.pathname} />
-    </AdaptedWrapper>
+    <ThemeProvider theme={themeColors}>
+      <AdaptedWrapper primary>
+        <Image image={logo} alt='logo' className='logo-image' />
+        <h1>Phone Store</h1>
+        <Cart total={cart} />
+        <Breadcrumbs path={location.pathname} />
+      </AdaptedWrapper>
+    </ThemeProvider>
   );
 }
 

@@ -1,22 +1,19 @@
 import { Link } from 'react-router-dom';
-import styled, { ThemeProvider } from 'styled-components';
-import { themeColors } from '../../styles/theme';
+import styled from 'styled-components';
 
 const Breadcrumbs = ({ path }) => {
   return (
-    <ThemeProvider theme={themeColors}>
-      <StyledWrapper>
-        <Link to='/'>
-          <p className='breadcrumbs-text'>home</p>
+    <StyledWrapper>
+      <Link to='/'>
+        <p className='breadcrumbs-text'>home</p>
+      </Link>
+      {path.length > 1 && (
+        <Link to={path}>
+          <p className='breadcrumbs-chevron'>{'>'}</p>
+          <p className='breadcrumbs-text'>model</p>
         </Link>
-        {path.length > 1 && (
-          <Link to={path}>
-            <p className='breadcrumbs-chevron'>{'>'}</p>
-            <p className='breadcrumbs-text'>model</p>
-          </Link>
-        )}
-      </StyledWrapper>
-    </ThemeProvider>
+      )}
+    </StyledWrapper>
   );
 }
 

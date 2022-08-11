@@ -1,25 +1,22 @@
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 import { StyledWrapper } from '../../styles/wrapper';
-import { themeColors } from '../../styles/theme';
 
 const Search = ({ setSearchValue, searchValue }) => {
   return (
-    <ThemeProvider theme={themeColors}>
-      <StyledSearch primary>
-        <label htmlFor='search-form'>
-          <StyledText>Find your new phone</StyledText>
-          <StyledInput
-            type='search'
-            name='search-form'
-            id='search-form'
-            className='search-input'
-            placeholder='Search brand or model...'
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-          />
-        </label>
-      </StyledSearch>
-    </ThemeProvider>
+    <StyledSearch primary>
+      <label htmlFor='search-form'>
+        <StyledText>Find your new phone</StyledText>
+        <StyledInput
+          type='search'
+          name='search-form'
+          id='search-form'
+          className='search-input'
+          placeholder='Search brand or model...'
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
+      </label>
+    </StyledSearch>
   );
 };
 

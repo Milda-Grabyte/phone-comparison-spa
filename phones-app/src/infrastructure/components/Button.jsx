@@ -1,5 +1,4 @@
-import styled, { ThemeProvider } from 'styled-components';
-import { themeColors } from '../../styles/theme';
+import styled from 'styled-components';
 
 const Button = ({ onClick, text, className = '', disabled }) => {
   
@@ -7,12 +6,12 @@ const Button = ({ onClick, text, className = '', disabled }) => {
     <span>{'<'}&nbsp;&nbsp;&nbsp;{text}</span> : 
     <span>{text}</span>;
 
+    console.log(disabled);
+
   return (
-      <ThemeProvider theme={themeColors}>
-          <StyledButton className={className} onClick={onClick} disabled={disabled}>
-              {spanOptions}
-          </StyledButton>
-      </ThemeProvider>
+    <StyledButton className={className} onClick={onClick} disabled={disabled}>
+        {spanOptions}
+    </StyledButton>
   )
 }
 
@@ -31,6 +30,7 @@ const StyledButton = styled.button`
   display: inline-block;
   line-height: 34px;
   padding: 0;
+  opacity: ${(props) => props.disabled ? '0.6' : '1'};
 
   &:hover{
     background: transparent;

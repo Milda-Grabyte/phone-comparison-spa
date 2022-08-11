@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
-import styled,{ ThemeProvider } from 'styled-components';
-import { themeColors } from '../../styles/theme';
+import styled from 'styled-components';
 import Image from './Image';
 import { helpers } from '../helpers/helpers';
 
@@ -18,36 +17,34 @@ const ProductList = ({ products }) => {
     );
   }
   return (
-    <ThemeProvider theme={themeColors}>
-      <StyledList>
-        {products.map((product, i) => (
-          <li key={i}>
-            <StyledCard>
-              <div className='card'></div>
-              <div className='card-info'>
-                <div className='card-image'>
-                  <Image image={product.image} alt={`${product.brand} ${product.model}`}/>
+    <StyledList>
+      {products.map((product, i) => (
+        <li key={i}>
+          <StyledCard>
+            <div className='card'></div>
+            <div className='card-info'>
+              <div className='card-image'>
+                <Image image={product.image} alt={`${product.brand} ${product.model}`}/>
+              </div>
+              <div className='card-text'>
+                <div className='card-text__description'>
+                  <h4>{product.brand}</h4>
+                  {modelDOM(product.model)}
+                  <p className='card-text__description-price'>{product.price}{product.price ? ' €' : '-'}</p>
                 </div>
-                <div className='card-text'>
-                  <div className='card-text__description'>
-                    <h4>{product.brand}</h4>
-                    {modelDOM(product.model)}
-                    <p className='card-text__description-price'>{product.price} €</p>
-                  </div>
-                  <div className='card-icon'>
-                    <Link to={product.id}>
-                      <svg viewBox='0 0 28 25'>
-                        <path d='M13.145 2.13l1.94-1.867 12.178 12-12.178 12-1.94-1.867 8.931-8.8H.737V10.93h21.339z'></path>
-                      </svg>
-                    </Link>
-                  </div>
+                <div className='card-icon'>
+                  <Link to={product.id}>
+                    <svg viewBox='0 0 28 25'>
+                      <path d='M13.145 2.13l1.94-1.867 12.178 12-12.178 12-1.94-1.867 8.931-8.8H.737V10.93h21.339z'></path>
+                    </svg>
+                  </Link>
                 </div>
               </div>
-            </StyledCard>
-          </li>
-        ))}
-      </StyledList>
-    </ThemeProvider>
+            </div>
+          </StyledCard>
+        </li>
+      ))}
+    </StyledList>
   );
 }
 

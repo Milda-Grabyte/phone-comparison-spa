@@ -54,7 +54,7 @@ const StyledPage = styled(StyledWrapper)`
 
   img {
     height: 80%;
-    margin: auto 0;
+    margin: auto 3rem auto 0;
   }
 `;
 
