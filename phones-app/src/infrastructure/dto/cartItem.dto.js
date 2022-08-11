@@ -1,4 +1,4 @@
-export class cartItemDTO {
+export class CartItemDTO {
   constructor(data) {
     data instanceof Object
       ? this.item = {

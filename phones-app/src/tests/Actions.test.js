@@ -11,7 +11,7 @@ describe('test Actions component', () => {
     expect(screen.getByRole('option', { name: '32 GB' }).selected).toBe(false);
   });
 
-  test('should allow user to change color', () => {
+  test('should allow user to change capacity', () => {
     render(<Actions item={itemMock} productId={'ZmGrkLRPXOTpxsU4jjAcv'} cart={0} setCart={setCart} />);
     waitFor(() => userEvent.selectOptions(screen.getByRole('listbox'), screen.getByRole('option', { name: '32 GB' })));
     waitFor(() => expect(screen.getByRole('option', { name: '32 GB' }).selected).toBe(true));
@@ -19,9 +19,13 @@ describe('test Actions component', () => {
 
   test('should allow user to change color', () => {
     render(<Actions item={itemMock} productId={'ZmGrkLRPXOTpxsU4jjAcv'} cart={0} setCart={setCart} />);
-    screen.debug();
     waitFor(() => userEvent.type(screen.getByTestId('select-colors'), 'Black'));
     waitFor(() => expect(setCart).toHaveBeenCalledTimes(0));
+  });
+
+  test('should include a button', () => {
+    render(<Actions item={itemMock} productId={'ZmGrkLRPXOTpxsU4jjAcv'} cart={0} setCart={setCart} />);
+    expect(screen.getByText('Add to cart')).toBeInTheDocument();
   });
 
 });

@@ -1,6 +1,6 @@
 
 import { ProductListDTO } from '../dto/ProductList.dto'
-import { api } from '../router/api/api'
+import { api } from '../api/api'
 
 export const productRepository = {
   get: async () => {

@@ -1,5 +1,5 @@
 import { ItemDTO } from '../dto/Item.dto';
-import { api } from '../router/api/api';
+import { api } from '../api/api';
 
 export const itemRepository = {
   get: async (productId) => {
