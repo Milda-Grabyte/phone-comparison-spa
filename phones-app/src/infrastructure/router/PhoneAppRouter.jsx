@@ -5,14 +5,14 @@ import Header from '../components/Header';
 import ProductDetailPage from '../pages/ProductDetailPage';
 import ProductListPage from '../pages/ProductListPage';
 
-function PhoneAppRouter({ cart, setCart, products }) {
+function PhoneAppRouter({ model, setModel, cart, setCart, products }) {
   return (
       <BrowserRouter>
-      <Header cart={ cart } />
+      <Header model={ model } cart={ cart } />
       <Routes>
               <Route index element={ <ProductListPage products={ products } /> } />
               <Route path='/' element={ <App /> } />
-              <Route path=':productId' element={ <ProductDetailPage cart={ cart } setCart={ setCart } /> } />
+              <Route path=':productId' element={ <ProductDetailPage setModel={ setModel }cart={ cart } setCart={ setCart } /> } />
               <Route path='*' element={ <Link to='/' /> } />
           </Routes>
     </BrowserRouter>

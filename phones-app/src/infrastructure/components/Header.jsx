@@ -8,7 +8,7 @@ import logo from '../../assets/eye-logo.png';
 import { themeColors } from '../../styles/theme';
 import { StyledWrapper } from '../../styles/wrapper';
 
-const Header = ({ cart }) => {
+const Header = ({ model, cart }) => {
   const location = useLocation();
   
   return (
@@ -19,7 +19,7 @@ const Header = ({ cart }) => {
         </Link>
               <h1>Phone Store</h1>
               <Cart total={ cart } />
-              <Breadcrumbs path={ location.pathname } />
+              <Breadcrumbs model={ model } path={ location.pathname } />
           </AdaptedWrapper>
     </ThemeProvider>
   );
