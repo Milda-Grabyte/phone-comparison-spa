@@ -7,7 +7,7 @@ describe('test ProductListPage component', () => {
     const setCart = jest.fn();
     const view = render(
         <BrowserRouter>
-          <ProductDetailPage cart={ 2 } setCart={ setCart }/>
+          <ProductDetailPage setModel={ jest.fn() } cart={ 2 } setCart={ setCart }/>
       </BrowserRouter>  
     );
     expect(typeof view).toBe('object');

@@ -63,7 +63,7 @@ module.exports = {
     'max-len': [
       'warn',
       {
-        code: 120
+        code: 140
       }
     ],
     'no-console': 'warn',

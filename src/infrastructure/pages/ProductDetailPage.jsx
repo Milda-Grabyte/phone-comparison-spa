@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 import { themeColors } from '../../styles/theme';
@@ -9,11 +9,15 @@ import Description from '../components/Description';
 import Image from '../components/Image';
 import { useGetService } from '../hooks/useGetService';
 
-const ProductDetailPage = ({ cart, setCart }) => {
+const ProductDetailPage = ({ setModel, cart, setCart }) => {
   const { productId } = useParams(); 
   const navigate = useNavigate();
   const item = useGetService('item', productId);
   const image = item.image;
+
+  useEffect(() => {
+    setModel(`${item.brand || ''} ${item.model || ''}`)
+  },[item])
   
   return (
       <ThemeProvider theme={ themeColors }>

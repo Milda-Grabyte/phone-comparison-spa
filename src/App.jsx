@@ -7,11 +7,12 @@ import { StyledWrapper } from './styles/wrapper';
 function App() {
   const products = useGetService('product');
   const [cart, setCart] = useState(0);
+  const [model, setModel] = useState('');
 
   return (
       <div className='App'>
       <StyledWrapper>
-              <PhoneAppRouter cart={ cart } setCart={ setCart } products={ products } />
+              <PhoneAppRouter model={ model } setModel={ setModel } cart={ cart } setCart={ setCart } products={ products } />
           </StyledWrapper>
     </div>
   );

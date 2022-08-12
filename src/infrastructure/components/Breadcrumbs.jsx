@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Breadcrumbs = ({ path }) => {
+const Breadcrumbs = ({ model, path }) => {
   return (
       <StyledWrapper>
       <Link to='/'>
@@ -10,7 +10,7 @@ const Breadcrumbs = ({ path }) => {
       { path.length > 1 && (
               <Link to={ path }>
             <p className='breadcrumbs-chevron'>{ '>' }</p>
-            <p className='breadcrumbs-text'>model</p>
+            <p className='breadcrumbs-text'>{ model }</p>
         </Link>
       ) }
     </StyledWrapper>
